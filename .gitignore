@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Serwist-generated service workers
+public/sw*
+public/serwist-worker*
+
+# Optional logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local env files
+.env*
+!.env.example
+
+# OS/System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Optional: Ignore coverage reports (if using testing)
+coverage/
+
+# Optional: Ignore static export cache (if exporting statically)
+export/
