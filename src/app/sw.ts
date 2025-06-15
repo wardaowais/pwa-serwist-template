@@ -23,3 +23,20 @@ const serwist = new Serwist({
 });
 
 serwist.addEventListeners();
+
+
+const urlsToCache = ["/", "/foo", "/bar"] as const;
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    Promise.all(
+      urlsToCache.map((entry) => {
+        const request = serwist.handleRequest({
+          request: new Request(entry),
+          event,
+        });
+        return request;
+      }),
+    ),
+  );
+});
