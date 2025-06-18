@@ -24,7 +24,7 @@ const serwist = new Serwist({
 
 serwist.addEventListeners();
 
-const urlsToCache = ["/", "/foo", "/bar"] as const;
+const urlsToCache = ["/", "/simulation", "/choose"] as const;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
