@@ -11,7 +11,7 @@ export default function Simulation() {
   const searchParams = useSearchParams();
   const initialColor = searchParams.get('color') || '000000'; // Default to black if no color
   const initialTime = parseFloat(searchParams.get('time')) || 5.0; // Default to 5.0 if no time
-  const { t, i18n } = useTranslation();
+  const { t} = useTranslation();
   const [showInfo, setShowInfo] = useState(false);
   const [showLang, setShowLang] = useState(false);
 
@@ -56,8 +56,8 @@ export default function Simulation() {
             </div>
           )}
         </div>
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-6">SimCRT</h1>
+      <div className="w-full max-w-md    text-center">
+       
 
         <div
           className={`relative w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center transition-all duration-300 ${thumbPressed ? 'scale-105' : ''}`}
