@@ -1,0 +1,20 @@
+{
+  "subtitle": "Kapillarfüllzeit Trainer App",
+  "title": "SimCRT",
+  "getStarted": "Loslegen",
+  "infoText": "SimCRT ist ein Simulator, der das Training der Kapillarfüllzeit (CRT) in simulierten pädiatrischen Notfällen ermöglicht.",
+
+ 
+  "chooseSubtitle": "Meistere CRT mit Echtzeit-Touch-Simulation",
+  "chooseSkinColor": "Wähle die Hautfarbe",
+  "chooseTime": "Wähle die Zeit",
+  "chooseStart": "SimCRT starten",
+  "chooseMin": "0,1",
+  "chooseMax": "10,0",
+
+ 
+  "simulationPressHold": "Drücken und Halten",
+  "simulationAdjustTime": "Zeit anpassen",
+  "simulationBack": "Zurück zur Startseite",
+  "simulationSec": "Sek."
+} 

@@ -1,57 +1,71 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import '../i18n';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const { t, i18n } = useTranslation();
+  const [showInfo, setShowInfo] = useState(false);
+  const [showLang, setShowLang] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-          
-            href="/choose"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-           choose page
-          </a>
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setShowLang(false);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+    
+      {/* Content Container */}
+      <div className="relative z-10 flex flex-col justify-between min-h-screen">
+        {/* Top Bar */}
+        <div className="flex justify-between items-center px-4 pt-12 pb-4">
+          <button onClick={() => setShowLang(v => !v)} className="  rounded-full p-2">
+            <Image src="/language.svg" alt="Language" width={28} height={28} />
+          </button>
+          {showLang && (
+            <div className="absolute left-4 top-20 bg-white rounded-lg shadow-lg p-2 z-20 text-sm min-w-32">
+              <button className="block w-full text-left px-3 py-2 hover:bg-gray-100 rounded" onClick={() => changeLanguage('en')}>English</button>
+              <button className="block w-full text-left px-3 py-2 hover:bg-gray-100 rounded" onClick={() => changeLanguage('de')}>German</button>
+            </div>
+          )}
+          <h1 className="text-6xl font-bold text-black" style={{ fontFamily: 'Jersey10, monospace', letterSpacing: '2px' }}>
+            SimCRT
+          </h1>
+          <button onClick={() => setShowInfo(v => !v)} className=" rounded-full p-2">
+            <Image src="/info.svg" alt="Info" width={28} height={28} />
+          </button>
+          {showInfo && (
+            <div className="absolute right-4 top-20 bg-white rounded-lg shadow-lg p-4 z-20 w-64 text-gray-800 text-center text-sm">
+              {t('infoText')}
+            </div>
+          )}
         </div>
-      </main>
-     
+
+        {/* Centered Content */}
+        <div className="flex-1 flex flex-col justify-center items-center px-6 text-center h-52" style={{ backgroundImage: 'url(/bg.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center center' }}>
+          <h2 className="text-white text-3xl font-bold mb-4 leading-tight" 
+              style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+            Capillary Refill Time<br />Trainer app
+          </h2>
+          <p className="text-white text-lg font-normal opacity-90 max-w-sm" 
+             style={{ textShadow: '0 2px 4px rgba(0,0,0,0.7)' }}>
+            {t('subtitle')}
+          </p>
+        </div>
+
+        {/* Get Started Button */}
+        <div className="flex justify-center pb-12 px-6">
+          <Link href="/choose" className="w-full max-w-sm">
+            <button className="w-full bg-gray-700 hover:bg-gray-800 active:bg-gray-900 text-white font-semibold py-4 px-8 rounded-full shadow-lg transition-all duration-200 text-lg">
+              {t('getStarted')}
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

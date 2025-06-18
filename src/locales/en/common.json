@@ -1,0 +1,20 @@
+{
+    
+  "title": "SimCRT",
+  "subtitle": "Capillary Refill Time Trainer app",
+  "getStarted": "Get Started",
+  "infoText": "SimCRT is a simulator designed to train the use of capillary refill time (CRT) in simulated pediatric emergencies.",
+
+  "chooseSubtitle": "Master CRT with Real-Time Touch Simulation",
+  "chooseSkinColor": "Select The Skin Color",
+  "chooseTime": "Choose the time",
+  "chooseStart": "Start SimCRT",
+  "chooseMin": "0.1",
+  "chooseMax": "10.0",
+
+ 
+  "simulationPressHold": "Press And Hold",
+  "simulationAdjustTime": "Adjust Time",
+  "simulationBack": "Back To Home",
+  "simulationSec": "Sec"
+} 
