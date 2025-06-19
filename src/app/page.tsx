@@ -95,9 +95,9 @@ export default function Home() {
         </div>
 
         {/* Get Started Button */}
-        <div className="flex justify-center pb-12 px-6">
-          <Link href="/choose" className="w-full max-w-sm">
-            <button className="w-full bg-gray-700 hover:bg-gray-800 active:bg-gray-900 text-white font-semibold py-4 px-8 rounded-full shadow-lg transition-all duration-200 text-lg">
+        <div className="flex justify-center pb-12 pt-12">
+          <Link href="/choose" className="">
+            <button className="bg-[#5D5D5D] hover:bg-[#5D5D5D]  text-white   rounded-full font-bold text-[18.45px] leading-[100%] tracking-[0%] text-center align-middle font-kameron h-[54px] w-[301.6px]">
               {t("getStarted")}
             </button>
           </Link>

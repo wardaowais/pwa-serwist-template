@@ -25,8 +25,29 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 @font-face {
-  font-family: 'Jersey10';
-  src: url('/fonts/Jersey10-Regular.ttf') format('truetype');
+  font-family: "Jersey10";
+  src: url("/fonts/Jersey10-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 11px; /* ✅ Updated radius */
+  background-color: #494949;
+  cursor: pointer;
+  border: none;
+  margin-top: -6px;
+}
+
+.custom-slider::-moz-range-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 11px; /* ✅ Updated radius */
+  background-color: #494949;
+  cursor: pointer;
+  border: none;
 }

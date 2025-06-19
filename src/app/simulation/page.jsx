@@ -1,18 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
-import TopBar from '../TopBar';
-
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
+import TopBar from "../TopBar";
 
 export default function Simulation() {
   const searchParams = useSearchParams();
-  const initialColor = searchParams.get('color') || '000000'; // Default to black if no color
-  const initialTime = parseFloat(searchParams.get('time')) || 5.0; // Default to 5.0 if no time
-  const { t} = useTranslation();
-
+  const initialColor = searchParams.get("color") || "000000"; // Default to black if no color
+  const initialTime = parseFloat(searchParams.get("time")) || 5.0; // Default to 5.0 if no time
+  const { t } = useTranslation();
 
   const [currentTime, setCurrentTime] = useState(initialTime);
   const [thumbPressed, setThumbPressed] = useState(false);
@@ -31,26 +29,32 @@ export default function Simulation() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between relative overflow-hidden">
-      
-          <TopBar/>
+    <div className="flex flex-col justify-between relative overflow-hidden">
+      <TopBar />
 
-      <div className="w-full max-w-md text-center">
-       
-
+      <div className=" text-center flex justify-center flex-col">
         <div
-          className={`relative w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center transition-all duration-300 ${thumbPressed ? 'scale-105' : ''}`}
-          style={{ backgroundColor: thumbPressed ? thumbColor : '#E0E0E0' }}
+          className={`relative w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+            thumbPressed ? "scale-105" : ""
+          }`}
+          style={{ backgroundColor: thumbPressed ? thumbColor : "#E0E0E0" }}
           onMouseDown={() => setThumbPressed(true)}
           onMouseUp={() => setThumbPressed(false)}
           onMouseLeave={() => setThumbPressed(false)} // Handle case where mouse leaves while pressed
           onTouchStart={() => setThumbPressed(true)}
           onTouchEnd={() => setThumbPressed(false)}
         >
-          <img src="/fingerprint.svg" alt="Fingerprint" className="w-24 h-24 opacity-50" />
+          <img
+            src="/fingerprint.svg"
+            alt="Fingerprint"
+            className="w-24 h-24 opacity-50"
+          />
         </div>
 
-        <p className="text-xl font-semibold text-gray-700 mb-4"> {t('simulationPressHold')}</p>
+        <p className="text-xl font-semibold text-gray-700 mb-4">
+          {" "}
+          {t("simulationPressHold")}
+        </p>
 
         <div className="flex items-center justify-center space-x-4 mb-8">
           <button
@@ -60,7 +64,8 @@ export default function Simulation() {
             +
           </button>
           <span className="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-lg text-xl">
-            {currentTime.toFixed(1)}{t('simulationSec')}
+            {currentTime.toFixed(1)}
+            {t("simulationSec")}
           </span>
           <button
             onClick={handleDecreaseTime}
@@ -70,11 +75,13 @@ export default function Simulation() {
           </button>
         </div>
 
-        <p className="text-lg text-gray-600 mb-8">{t('simulationAdjustTime')}</p>
+        <p className="text-lg text-gray-600 mb-8">
+          {t("simulationAdjustTime")}
+        </p>
 
         <Link href="/">
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-full shadow-lg">
-          {t('simulationBack')}
+          <button className="bg-[#5D5D5D] hover:bg-[#5D5D5D]  text-white   rounded-full font-bold text-[18.45px] leading-[100%] tracking-[0%] text-center align-middle font-kameron h-[54px] w-[301.6px]">
+            {t("simulationBack")}
           </button>
         </Link>
       </div>
