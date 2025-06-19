@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import Image from 'next/image';
+import TopBar from '../TopBar';
 
 
 export default function Simulation() {
@@ -12,8 +12,6 @@ export default function Simulation() {
   const initialColor = searchParams.get('color') || '000000'; // Default to black if no color
   const initialTime = parseFloat(searchParams.get('time')) || 5.0; // Default to 5.0 if no time
   const { t} = useTranslation();
-  const [showInfo, setShowInfo] = useState(false);
-  const [showLang, setShowLang] = useState(false);
 
 
   const [currentTime, setCurrentTime] = useState(initialTime);
@@ -33,30 +31,11 @@ export default function Simulation() {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col items-center justify-center bg-gray-100 p-4">
-         <div className="flex justify-between items-center px-4 pt-12 pb-4">
-          <button onClick={() => setShowLang(v => !v)} className="  rounded-full p-2">
-            <Image src="/language.svg" alt="Language" width={28} height={28} />
-          </button>
-          {showLang && (
-            <div className="absolute left-4 top-20 bg-white rounded-lg shadow-lg p-2 z-20 text-sm min-w-32">
-              <button className="block w-full text-left px-3 py-2 hover:bg-gray-100 rounded" onClick={() => changeLanguage('en')}>English</button>
-              <button className="block w-full text-left px-3 py-2 hover:bg-gray-100 rounded" onClick={() => changeLanguage('de')}>German</button>
-            </div>
-          )}
-          <h1 className="text-6xl font-bold text-black" style={{ fontFamily: 'Jersey10, monospace', letterSpacing: '2px' }}>
-            SimCRT
-          </h1>
-          <button onClick={() => setShowInfo(v => !v)} className=" rounded-full p-2">
-            <Image src="/info.svg" alt="Info" width={28} height={28} />
-          </button>
-          {showInfo && (
-            <div className="absolute right-4 top-20 bg-white rounded-lg shadow-lg p-4 z-20 w-64 text-gray-800 text-center text-sm">
-              {t('infoText')}
-            </div>
-          )}
-        </div>
-      <div className="w-full max-w-md    text-center">
+    <div className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+      
+          <TopBar/>
+
+      <div className="w-full max-w-md text-center">
        
 
         <div
