@@ -96,9 +96,11 @@ export default function Choose() {
           </div>
 
           <Link
-            href={`/simulation?color=${selectedColor.substring(
-              1
-            )}&time=${time}`}
+            href="/simulation"
+            onClick={() => {
+              localStorage.setItem("selectedColor", selectedColor);
+              localStorage.setItem("selectedTime", time.toString());
+            }}
           >
             <button className="bg-[#5D5D5D] hover:bg-[#5D5D5D]  text-white   rounded-full font-bold text-[18.45px] leading-[100%] tracking-[0%] text-center align-middle font-kameron h-[54px] w-[301.6px]">
               {t("chooseStart")}

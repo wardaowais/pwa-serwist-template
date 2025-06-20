@@ -1,25 +1,27 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import TopBar from "../TopBar";
 import ShareButton from "../ShareButton";
 
 export default function Simulation() {
-  const searchParams = useSearchParams();
-  const initialColor = searchParams.get("color") || "000000";
-  const initialTime = parseFloat(searchParams.get("time")) || 5.0;
   const { t } = useTranslation();
-
-  const [currentTime, setCurrentTime] = useState(initialTime);
-  const [thumbPressed, setThumbPressed] = useState(false);
-  const [thumbColor, setThumbColor] = useState(`#${initialColor}`);
+  const [currentTime, setCurrentTime] = useState(5.0);
+  const [thumbColor, setThumbColor] = useState("#000000");
+  const [hydrated, setHydrated] = useState(false);
+  const [thumbPressed, setThumbPressed] = useState(false); // ✅ you missed this one
 
   useEffect(() => {
-    setThumbColor(`#${initialColor}`);
-  }, [initialColor]);
+    const storedColor = localStorage.getItem("selectedColor");
+    const storedTime = localStorage.getItem("selectedTime");
+
+    if (storedColor) setThumbColor(storedColor);
+    if (storedTime) setCurrentTime(parseFloat(storedTime));
+
+    setHydrated(true);
+  }, []);
 
   const handleIncreaseTime = () => {
     setCurrentTime((prevTime) => Math.min(prevTime + 0.1, 10.0));
@@ -28,6 +30,9 @@ export default function Simulation() {
   const handleDecreaseTime = () => {
     setCurrentTime((prevTime) => Math.max(prevTime - 0.1, 0.1));
   };
+
+  // ✅ Correct placement of the guard
+  if (!hydrated) return null;
 
   return (
     <div className="flex flex-col justify-between relative overflow-hidden">
@@ -56,7 +61,6 @@ export default function Simulation() {
             draggable={false}
             onContextMenu={(e) => e.preventDefault()}
           />
-
           <img
             src="/print.png"
             alt="Print Overlay"
@@ -99,7 +103,8 @@ export default function Simulation() {
           </button>
         </Link>
       </div>
-       <ShareButton/>
+
+      <ShareButton />
     </div>
   );
 }
