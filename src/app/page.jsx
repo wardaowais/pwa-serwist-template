@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../i18n";
@@ -9,14 +9,8 @@ import ShareButton from "./ShareButton";
 import TopBar from "./TopBar";
 
 export default function Home() {
-  const { t, i18n } = useTranslation();
-  const [showInfo, setShowInfo] = useState(false);
-  const [showLang, setShowLang] = useState(false);
+  const { t } = useTranslation();
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-    setShowLang(false);
-  };
 
   return (
     <div className="min-h-screen flex flex-col justify-between relative overflow-hidden">
@@ -51,8 +45,7 @@ export default function Home() {
             </button>
           </Link>
         </div>
-        {/* Share Button – fixed at bottom right */}
-        {/* Share Button – fixed at bottom right */}
+       
         <ShareButton />
       </div>
     </div>
