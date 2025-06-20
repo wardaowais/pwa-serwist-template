@@ -16,5 +16,12 @@
   "simulationPressHold": "Press And Hold",
   "simulationAdjustTime": "Adjust Time",
   "simulationBack": "Back To Home",
-  "simulationSec": "Sec"
+  "simulationSec": "Sec",
+
+  "Pressedstatus": "Pressed - Capillaries Empty",
+  "Refillstatus": " Refilling - Blood Returning",
+  "FilledStauts": "Normal - Capillaries Filled"
+
+
+
 } 

@@ -16,5 +16,12 @@
   "simulationPressHold": "Drücken und Halten",
   "simulationAdjustTime": "Zeit anpassen",
   "simulationBack": "Zurück zur Startseite",
-  "simulationSec": "Sek."
+  "simulationSec": "Sek.",
+
+  
+  "Pressedstatus": "Gedrückt – Kapillaren entleert",
+  "Refillstatus": "Wiederauffüllung – Blut kehrt zurück",
+  "FilledStatus": "Normal – Kapillaren gefüllt"
+
+
 } 
