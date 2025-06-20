@@ -19,9 +19,13 @@
   "simulationSec": "Sek.",
 
   
-  "Pressedstatus": "Gedrückt – Kapillaren entleert",
-  "Refillstatus": "Wiederauffüllung – Blut kehrt zurück",
-  "FilledStatus": "Normal – Kapillaren gefüllt"
+  
+  "Pressedstatus": "Gedrückt – Kapillaren leer",
+  "Refillstatus": "Wiederauffüllen – Blut kehrt zurück",
+  "FilledStatus": "Normal – Kapillaren gefüllt",
+  "Holdstatus": "Drücken und Halten",
+  "Homestatus": "Zurück zur Startseite"
+}
 
 
-} 
+

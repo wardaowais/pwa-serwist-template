@@ -6,9 +6,8 @@ import ShareButton from "../ShareButton";
 import TopBar from "../TopBar";
 import { useTranslation } from "react-i18next";
 
-
 export default function Simulation() {
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   const [currentTime, setCurrentTime] = useState(5.0);
   const [selectedSkinColor, setSelectedSkinColor] = useState("#E0F2F7"); // Original skin color
   const [currentThumbColor, setCurrentThumbColor] = useState("#E0F2F7"); // Current display color
@@ -159,7 +158,7 @@ export default function Simulation() {
       {/* Top Bar */}
       <TopBar />
 
-      <div className="text-center flex justify-center flex-col">
+      <div className="text-center flex justify-center flex-col mb-[40px]">
         {/* Thumb Area with Inside-to-Outside Fill Effect */}
         <div className="relative w-[109px] h-[190px] mx-auto mb-8">
           {/* Background Base (always pressed color) */}
@@ -337,65 +336,66 @@ export default function Simulation() {
         </div>
 
         {/* Status Indicator */}
-        <div className="mb-4">
-          {thumbPressed && (
-            <p className="text-sm text-red-600 font-semibold">
-             
-               {t("Pressedstatus")}
-            </p>
-          )}
-          {isRefilling && (
-            <p className="text-sm text-blue-600 font-semibold">
-               {t("Refillstatus")}
-            </p>
-          )}
-          {!thumbPressed && !isRefilling && (
-            <p className="text-sm text-green-600 font-semibold">
-              {t("FilledStatus")}
-            </p>
-          )}
+        <div className="flex flex-col gap-[19px]">
+          <div className="mb-4 ">
+            {thumbPressed && (
+              <p className="text-sm text-red-600 font-semibold">
+                {t("Pressedstatus")}
+              </p>
+            )}
+            {isRefilling && (
+              <p className="text-sm text-blue-600 font-semibold">
+                {t("Refillstatus")}
+              </p>
+            )}
+            {!thumbPressed && !isRefilling && (
+              <p className="text-sm text-green-600 font-semibold">
+                {t("FilledStatus")}
+              </p>
+            )}
+          </div>
+
+          {/* Instruction */}
+          <p class="font-montserrat font-semibold text-[18px] leading-[1.1] text-center align-middle text-[#5D5D5D]  ">
+            {t("Holdstatus")}
+          </p>
+
+          {/* Time Controls */}
+          <div className="flex items-center justify-center space-x-4 mb-8 ">
+            <button
+              onClick={handleDecreaseTime}
+              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full text-2xl"
+              disabled={isRefilling}
+            >
+              -
+            </button>
+            <span className="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-lg text-xl">
+              {currentTime.toFixed(1)} Sec
+            </span>
+            <button
+              onClick={handleIncreaseTime}
+              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full text-2xl"
+              disabled={isRefilling}
+            >
+              +
+            </button>
+          </div>
+
+          <p class="font-montserrat font-semibold text-[18px] leading-[1.1] text-center align-middle text-[#5D5D5D]">
+            {t("simulationAdjustTime")}
+          </p>
+
+          {/* Back Button */}
+          <Link href="/">
+            <button className="bg-[#5D5D5D] hover:bg-[#5D5D5D] text-white rounded-full font-bold text-[18.45px] leading-[100%] tracking-[0%] text-center align-middle h-[54px] w-[301.6px]">
+              {t("Homestatus")}
+            </button>
+          </Link>
         </div>
 
-        {/* Instruction */}
-        <p className="text-xl font-semibold text-gray-700 mb-4">
-          Press And Hold
-        </p>
-
-        {/* Time Controls */}
-        <div className="flex items-center justify-center space-x-4 mb-8">
-          <button
-            onClick={handleDecreaseTime}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full text-2xl"
-            disabled={isRefilling}
-          >
-            -
-          </button>
-          <span className="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-lg text-xl">
-            {currentTime.toFixed(1)} Sec
-          </span>
-          <button
-            onClick={handleIncreaseTime}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full text-2xl"
-            disabled={isRefilling}
-          >
-            +
-          </button>
-        </div>
-
-        <p className="text-lg text-gray-600 mb-8">{t("simulationAdjustTime")}</p>
-
-  
-
-        {/* Back Button */}
-        <Link href="/">
-          <button className="bg-[#5D5D5D] hover:bg-[#5D5D5D] text-white rounded-full font-bold text-[18.45px] leading-[100%] tracking-[0%] text-center align-middle h-[54px] w-[301.6px]">
-            Back To Home
-          </button>
-        </Link>
+        {/* Share Button */}
+        <ShareButton />
       </div>
-
-      {/* Share Button */}
-      <ShareButton />
     </div>
   );
 }

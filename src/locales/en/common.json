@@ -1,5 +1,4 @@
 {
-    
   "title": "SimCRT",
   "subtitle": "Capillary Refill Time Trainer – Medical App",
   "getStarted": "Get Started",
@@ -12,7 +11,6 @@
   "chooseMin": "0.1",
   "chooseMax": "10.0",
 
- 
   "simulationPressHold": "Press And Hold",
   "simulationAdjustTime": "Adjust Time",
   "simulationBack": "Back To Home",
@@ -20,8 +18,7 @@
 
   "Pressedstatus": "Pressed - Capillaries Empty",
   "Refillstatus": " Refilling - Blood Returning",
-  "FilledStauts": "Normal - Capillaries Filled"
-
-
-
-} 
+  "FilledStauts": "Normal - Capillaries Filled",
+  "Holdstatus": " Press And Hold",
+  "Homestatus": "Back To Home"
+}
