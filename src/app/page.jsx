@@ -7,18 +7,18 @@ import { useTranslation } from "react-i18next";
 import "../i18n";
 import ShareButton from "./ShareButton";
 import TopBar from "./TopBar";
+import InstallButton from "./Installbutton";
 
 export default function Home() {
   const { t } = useTranslation();
-
 
   return (
     <div className="min-h-screen flex flex-col justify-between relative overflow-hidden">
       {/* Content Container */}
       <div className="relative z-10 flex flex-col justify-between min-h-screen">
         {/* Top Bar */}
-        <TopBar/>
-
+        <TopBar />
+        <InstallButton />
         {/* Centered Content */}
         <div
           className="flex-1 flex flex-col justify-center items-center px-6 text-center h-52"
@@ -45,7 +45,7 @@ export default function Home() {
             </button>
           </Link>
         </div>
-       
+
         <ShareButton />
       </div>
     </div>
