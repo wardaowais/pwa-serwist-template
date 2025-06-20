@@ -25,9 +25,10 @@ const ShareButton = () => {
   return (
     <button
       onClick={handleShare}
-      className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg z-50 transition duration-200"
+      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-500 text-white p-4 rounded-full shadow-lg z-50 transition duration-200"
     >
-      <Image src="/share.svg" alt="Share" width={24} height={24} />
+      <Image src="/share.svg" alt="Share" width={24} height={24} 
+  className="invert"/>
     </button>
   );
 };

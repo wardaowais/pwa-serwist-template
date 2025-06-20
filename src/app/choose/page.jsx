@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import TopBar from "../TopBar";
+import ShareButton from "../ShareButton";
 
 export default function Choose() {
   const [selectedColor, setSelectedColor] = useState("#E0F2F7"); // Default light blue
@@ -51,7 +52,7 @@ export default function Choose() {
           </div>
 
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-700 text-center top-438px">
+            <h2 className="text-xl font-semibold text-gray-700 pb-8 text-center top-438px">
               {t("chooseTime")}
             </h2>
 
@@ -105,6 +106,7 @@ export default function Choose() {
           </Link>
         </div>
       </div>
+      <ShareButton />
     </div>
   );
 }
